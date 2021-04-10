@@ -8,6 +8,8 @@ routes.get('/', (req, res) => {
     res.send('funcionando')
 })
 
+routes.get('/comments', CommentController.list)
+
 routes.post('/comments', CommentController.store)
 
 module.exports = routes

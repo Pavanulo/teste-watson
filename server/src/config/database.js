@@ -5,7 +5,7 @@ module.exports = {
     password: 'admin',
     database: 'teste-watson',
     define: {
-        timestamp: false,
+        timestamp: true,
         undercored: true,
     },
 }

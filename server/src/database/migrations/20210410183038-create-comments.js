@@ -3,7 +3,7 @@
 module.exports = {
   up: async (queryInterface, Sequelize) => {
 
-    await queryInterface.createTable('comments', {
+    return await queryInterface.createTable('comments', {
        id: {
           type: Sequelize.INTEGER,
           primaryKey: true,
@@ -18,20 +18,20 @@ module.exports = {
           type: Sequelize.STRING,
           allowNull: true,
         },
-        // created_at: {
-        //   type: Sequelize.DATE,
-        //   allowNull: false,
-        // },
-        // updated_at: {
-        //   type: Sequelize.DATE,
-        //   allowNull: false,
-        // },       
+        createdAt: {
+          type: Sequelize.DATE,
+          allowNull: true,
+        },
+        updatedAt: {
+          type: Sequelize.DATE,
+          allowNull: true,
+        },       
       });
      
   },
 
   down: async (queryInterface, Sequelize) => {
 
-    await queryInterface.dropTable('comments');
+    return await queryInterface.dropTable('comments');
   }
 };
