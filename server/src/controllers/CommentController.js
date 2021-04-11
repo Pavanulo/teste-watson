@@ -8,7 +8,6 @@ module.exports = {
     async play(req, res) {
         try {
             const { id } = req.body
-            console.log(id)
             const data = await Comment.findOne({where: { id: id}})
             await sound.play(data.audiopath)
             return res.json(data)
@@ -23,7 +22,7 @@ module.exports = {
         return res.json(comment)
     },
 
-    async store(req, res) { // pode receber o parametro do path aqui futuramente
+    async store(req, res) {
         const { comment } = req.body
         console.log(req.body)        
         const audiopath = convert(comment)

@@ -43,7 +43,7 @@ async function getComment(){
 function show(items) {
     let list_itens = ''
     for(item of items) {
-        list_itens += `<li>${item.comment}</li> <button id="${item.id}" onclick="playAudio()">Ouvir</button>`
+        list_itens += `<div class="listItem"><p>${item.comment}</p><button id="${item.id}" onclick="playAudio()">Ouvir</button></div> `
     }
     list.innerHTML = list_itens
 }

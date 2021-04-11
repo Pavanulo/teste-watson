@@ -1,3 +1,96 @@
-ul {
-    list-style: none;
+html, body {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    width: 100%;
+    height: 100%;
+    font-family: Arial, Helvetica, sans-serif;
 }
+
+h1 {
+    font-size: 20px;
+}
+
+
+.container {
+    background: #2e2d2d;
+    width: 100vw;
+    height: 100vh;
+    display: grid;
+    grid-template-columns: 2fr 2fr;
+    grid-template-rows: 100vh;
+    grid-column-gap: 2px;
+    grid-template-areas:"form comments";
+    /* align-items:flex-start; */
+}
+
+section#formSection {
+    padding-top: 5%;
+    background-color: #f6f6f6;
+    grid-area: form;
+}
+
+section#formSection h1 {
+    margin-left: 7%;
+    /* margin-top: 5%; */
+}
+
+section#commentsSection {
+    padding-top: 5%;
+    background-color: #f6f6f6;
+    grid-area: comments;
+    overflow: auto;
+}
+
+section#commentsSection h1 {
+    /* margin-top: 5%; */
+    margin-left: 12%;
+}
+
+form {
+    margin-left: 7%;
+}
+
+form textarea {
+    width: 85%;
+    height: 150px;
+    resize: none;
+    border-radius: 5px;
+    box-shadow: 0.5px 0.5px;
+}
+
+form button {
+    display: block;
+    border: none;
+    background-color: rgb(131, 255, 203);;
+    width: 86%;
+    /* min-width: 120px; */
+    border-radius: 5px;
+    padding: 10px;
+    box-shadow: 0.7px 0.7px;
+}
+
+div#list div.listItem {
+    display:flex;
+    align-items:center;
+}
+
+div#list div.listItem p {
+    padding-top:3px;
+    padding-right: 55px;
+    margin-left: 12%;
+    text-align: justify;
+    width: 45%;
+}
+
+div#list div.listItem button {
+    border: none;
+    border-radius: 3px;
+    background-color: rgb(131, 255, 203);
+    border-radius: 5px;
+    width: 10%;
+    padding: 7px;
+    box-shadow: 0.7px 0.7px;
+
+}
+
