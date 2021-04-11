@@ -11,11 +11,11 @@ module.exports = {
           allowNull: false,
        },
         comment: {
-          type: Sequelize.STRING,
+          type: Sequelize.STRING(1200),
           allowNull: false,
         },
         audiopath: {
-          type: Sequelize.STRING,
+          type: Sequelize.STRING(1200),
           allowNull: true,
         },
         createdAt: {

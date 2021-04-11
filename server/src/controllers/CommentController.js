@@ -6,11 +6,15 @@ const sound = require('sound-play')
 
 module.exports = {
     async play(req, res) {
-      const { id } = req.body
-      console.log(id)
-      const data = await Comment.findOne({where: { id: id}})
-      await sound.play(data.audiopath)
-      return res.json(data)
+        try {
+            const { id } = req.body
+            console.log(id)
+            const data = await Comment.findOne({where: { id: id}})
+            await sound.play(data.audiopath)
+            return res.json(data)
+        } catch (error) {
+            console.error(error)
+        }
     },
 
     async list(req, res) {
@@ -44,14 +48,12 @@ function convert(comment){
         return textToSpeech.repairWavHeaderStream(response.result);
       })
       .then(buffer => {
-        fs.writeFileSync(`audios/./${content.text.replace(/\s/g,'').substr(0,13)}.wav`, buffer);
-        // const filePath = path.join(__dirname,'../audio',`${content.text.substr(0,13)}.wav`)
-        //futuro sound.play
+        fs.writeFileSync(`audios/./${content.text.replace(/\s/g,'').substr(0,255)}.wav`, buffer);
         console.log(filePath)
       })
       .catch(err => {
         console.log('error:', err);
       });
     
-       return filePath = path.join(__dirname,'/../../audios',`${content.text.replace(/\s/g,'').substr(0,13)}.wav`)
+       return filePath = path.join(__dirname,'/../../audios',`${content.text.replace(/\s/g,'').substr(0,255)}.wav`)
 }

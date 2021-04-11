@@ -49,9 +49,10 @@ function show(items) {
 }
 
 async function playAudio(){
+    const id = event.srcElement.id
     try {
         const body = {
-            id: 2
+            id: id
         }
         const response = await fetch('http://localhost:3000/play', {
             method: "POST",
