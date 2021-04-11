@@ -4,7 +4,7 @@ let list = document.querySelector("#list")
 
 form.addEventListener("submit", async (event) => {
     event.preventDefault()
-
+    
     await sendComment(textarea.value)
     await getComment()
 })
