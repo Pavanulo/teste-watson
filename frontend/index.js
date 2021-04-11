@@ -43,7 +43,26 @@ async function getComment(){
 function show(items) {
     let list_itens = ''
     for(item of items) {
-        list_itens += `<li>${item.comment}</li> <button id="${item.id}">Ouvir</button>`
+        list_itens += `<li>${item.comment}</li> <button id="${item.id}" onclick="playAudio()">Ouvir</button>`
     }
     list.innerHTML = list_itens
+}
+
+async function playAudio(){
+    try {
+        const body = {
+            id: 2
+        }
+        const response = await fetch('http://localhost:3000/play', {
+            method: "POST",
+            headers: {
+                'Accept': 'application/json',
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(body)
+        }) 
+        console.log(response.status)
+    } catch (error) {
+        console.error(error)
+    }
 }
