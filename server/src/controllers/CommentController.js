@@ -10,7 +10,6 @@ module.exports = {
             const { id } = req.body
             const data = await Comment.findOne({where: { id: id}})
             await sound.play(data.audiopath)
-            console.log('respondeu')
             return res.json(data)
         } catch (error) {
             console.error(error)
@@ -24,10 +23,8 @@ module.exports = {
     },
 
     async store(req, res) {
-        const { comment } = req.body
-        console.log(req.body)        
+        const { comment } = req.body        
         const audiopath = convert(comment)
-        console.log(audiopath)
         const data = await Comment.create({ comment, audiopath })
 
         return res.json(data)
@@ -47,14 +44,13 @@ function convert(comment){
     textToSpeech.synthesize(content)
     
       .then(response => {
-        console.log(response.status)
         return textToSpeech.repairWavHeaderStream(response.result);
       })
       .then(buffer => {
         fs.writeFileSync(`audios/./${randompath}.wav`, buffer);
       })
       .catch(err => {
-        console.log('error:', err);
+        console.error('error:', err);
       });
     
        return filePath = path.join(__dirname,'/../../audios',`${randompath}.wav`)

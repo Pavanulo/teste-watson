@@ -14,7 +14,6 @@ async function sendComment(comment){
         const body = {
             comment: comment
         }
-        console.log(body)
         const response = await fetch('http://localhost:3000/comments', {
             method: "POST",
             headers: {
@@ -34,7 +33,6 @@ async function getComment(){
         const response = await fetch('http://localhost:3000/comments')
         const data = await response.json()
         show(data)
-        console.log(response.status)
     } catch (error) {
         console.error(error)
     }
@@ -62,7 +60,6 @@ async function playAudio(){
             },
             body: JSON.stringify(body)
         }) 
-        console.log(response.status)
     } catch (error) {
         console.error(error)
     }

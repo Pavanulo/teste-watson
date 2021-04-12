@@ -6,10 +6,6 @@ const fs = require('fs')
 
 const routes = express.Router()
 
-routes.get('/', (req, res) => {
-    res.send('funcionando')
-})
-
 routes.get('/comments', CommentController.list)
 routes.post('/play', CommentController.play)
 
