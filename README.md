@@ -17,3 +17,8 @@
 > npx sequelize db:create.
 > 
 > npx sequelize db:migrate.
+> 
+## Iniciando projeto
+> Criar arquivo .env na pasta config seguindo os exemplos do arquivo .env.example
+>
+> npm start ou npm run dev
