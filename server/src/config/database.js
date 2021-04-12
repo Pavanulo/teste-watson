@@ -1,8 +1,10 @@
+require('dotenv').config({path: __dirname + '/.env'})
+
 module.exports = {
     dialect: 'mysql',
-    host: 'localhost',
-    username: 'root',
-    password: 'admin',
+    host: process.env.DBHOST,
+    username: process.env.DBUSERNAME,
+    password: process.env.DBPASSWORD,
     database: 'teste-watson',
     define: {
         timestamp: true,
