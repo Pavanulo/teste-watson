@@ -3,7 +3,7 @@
 module.exports = {
   up: async (queryInterface, Sequelize) => {
 
-    return await queryInterface.createTable('comments', {
+    return await queryInterface.createTable('Comments', {
        id: {
           type: Sequelize.INTEGER,
           primaryKey: true,
@@ -32,6 +32,6 @@ module.exports = {
 
   down: async (queryInterface, Sequelize) => {
 
-    return await queryInterface.dropTable('comments');
+    return await queryInterface.dropTable('Comments');
   }
 };

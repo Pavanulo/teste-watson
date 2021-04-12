@@ -22,7 +22,6 @@ async function sendComment(comment){
             },
             body: JSON.stringify(body)
         }) 
-        console.log(response.status)
     } catch (error) {
         console.error(error)
     }
@@ -52,15 +51,20 @@ async function playAudio(){
         const body = {
             id: id
         }
-        const response = await fetch('http://localhost:3000/play', {
+        const readableStream = await fetch('http://localhost:3000/play', {
             method: "POST",
             headers: {
                 'Accept': 'application/json',
                 'Content-Type': 'application/json'
             },
             body: JSON.stringify(body)
-        }) 
+        })
+        const response = await readableStream.json()
+        const audio =  new Audio(response.audiopath)
+        await audio.play()
+
     } catch (error) {
+        alert('Audio ainda não criado')
         console.error(error)
     }
 }

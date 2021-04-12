@@ -2,14 +2,12 @@ const Comment = require('../models/Comment')
 const textToSpeech = require('../config/watson')
 const path = require('path')
 const fs = require('fs')
-const sound = require('sound-play')
 
 module.exports = {
     async play(req, res) {
         try {
             const { id } = req.body
             const data = await Comment.findOne({where: { id: id}})
-            await sound.play(data.audiopath)
             return res.json(data)
         } catch (error) {
             console.error(error)
