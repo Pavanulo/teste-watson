@@ -1,4 +1,4 @@
-# teste-watson
+# Text to Speech
 
 ### Aplicação web que cadastra comentários e os transforma em áudio através da API Watson Text to Speech
 ## Requisitos:
